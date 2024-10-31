@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './styles/tailwind.css'; // Import Tailwind CSS
+import './styles/index.css'; // Import your existing styles
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
