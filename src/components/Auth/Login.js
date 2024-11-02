@@ -6,6 +6,7 @@ import { auth, providerGoogle, providerFacebook, providerGithub } from '../../fi
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { FaHome } from 'react-icons/fa'; // Importing home icon
 
 const Login = () => {
     const { demoLogin } = useContext(AuthContext);
@@ -58,21 +59,8 @@ const Login = () => {
             <div className="card p-4 shadow" style={{ maxWidth: '400px', width: '100%' }}>
                 <h2 className="text-center">Login</h2>
                 {error && <div className="alert alert-danger mt-3">{error}</div>}
-                <div className="mt-4">
-                    <button className="btn btn-danger w-100 mb-2" onClick={() => handleSocialLogin(providerGoogle)}>
-                        Login with Google
-                    </button>
-                    <button className="btn btn-primary w-100 mb-2" onClick={() => handleSocialLogin(providerFacebook)}>
-                        Login with Facebook
-                    </button>
-                    <button className="btn btn-dark w-100 mb-2" onClick={() => handleSocialLogin(providerGithub)}>
-                        Login with GitHub
-                    </button>
-                    <button className="btn btn-secondary w-100 mb-2" onClick={demoLogin}>
-                        Demo Login
-                    </button>
-                </div>
-                <p className="text-center mt-3">Or use email and password</p>
+
+                {/* Email and Password Form */}
                 <form onSubmit={handleLogin}>
                     <div className="mb-3">
                         <input
@@ -96,6 +84,45 @@ const Login = () => {
                     </div>
                     <button type="submit" className="btn btn-success w-100">Login</button>
                 </form>
+
+                <p className="text-center mt-3">Or log in with:</p>
+
+                {/* Social Login Buttons */}
+                <div className="mt-4">
+                    <button className="btn btn-danger w-100 mb-2" onClick={() => handleSocialLogin(providerGoogle)}>
+                        Login with Google
+                    </button>
+                    <button className="btn btn-primary w-100 mb-2" onClick={() => handleSocialLogin(providerFacebook)}>
+                        Login with Facebook
+                    </button>
+                    <button className="btn btn-dark w-100 mb-2" onClick={() => handleSocialLogin(providerGithub)}>
+                        Login with GitHub
+                    </button>
+                    <button className="btn btn-secondary w-100 mb-2" onClick={demoLogin}>
+                        Demo Login
+                    </button>
+                </div>
+
+                <p className="text-center mt-3">
+                    Don't have an account? 
+                    <button 
+                        className="text-blue-600 hover:underline focus:outline-none no-underline ml-2" // Added margin-left for spacing
+                        onClick={() => navigate('/signup')}
+                    >
+                        Sign Up
+                    </button>
+                </p>
+
+                {/* Navigation to landing page */}
+                <div className="text-center mt-3">
+                    <button 
+                        className="btn text-blue-600 d-flex align-items-center" // Removed btn-link to eliminate text decoration
+                        onClick={() => navigate('/')} // Navigate to the landing page
+                    >
+                        <FaHome className="me-2" /> {/* Home icon */}
+                        Home
+                    </button>
+                </div>
             </div>
         </div>
     );

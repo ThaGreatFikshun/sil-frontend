@@ -55,7 +55,7 @@ const AuthProvider = ({ children }) => {
         try {
             const { email, password } = demoCredentials;
             await signInWithEmailAndPassword(auth, email, password);
-            setCurrentUser({ email }); // Adjust to set the full user object if needed
+            setCurrentUser({ email }); // Set full user object if needed
         } catch (error) {
             console.error("Demo login failed:", error.message);
             alert("Demo login failed: " + error.message); // User feedback
