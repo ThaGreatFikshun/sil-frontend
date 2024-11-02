@@ -12,6 +12,8 @@ const LandingPage = () => {
     <div className="flex flex-col min-h-screen text-gray-800 bg-gray-100">
       <Navbar />
       
+      <Slideshow />
+
       <header className="bg-green-600 text-white p-8 text-center">
         <h1 className="text-4xl font-bold">Welcome to Savannah Informatics</h1>
         <p className="mt-4 text-lg">Your one-stop solution for managing albums and photos!</p>
@@ -21,8 +23,6 @@ const LandingPage = () => {
           </Link>
         </nav>
       </header>
-      
-      <Slideshow />
 
       <main className="flex-grow p-8">
         <Features />
