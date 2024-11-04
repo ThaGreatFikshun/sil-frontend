@@ -54,6 +54,16 @@ const Login = () => {
         }
     };
 
+    const handleDemoLogin = async () => {
+        try {
+            await demoLogin(); // Trigger the demo login function from AuthContext
+            navigate('/home'); // Navigate to home after demo login
+        } catch (error) {
+            setError("Demo login failed. Please try again.");
+            console.error("Demo login failed:", error.message);
+        }
+    };
+
     return (
         <div className="container d-flex align-items-center justify-content-center min-vh-100">
             <div className="card p-4 shadow" style={{ maxWidth: '400px', width: '100%' }}>
@@ -98,7 +108,7 @@ const Login = () => {
                     <button className="btn btn-dark w-100 mb-2" onClick={() => handleSocialLogin(providerGithub)}>
                         Login with GitHub
                     </button>
-                    <button className="btn btn-secondary w-100 mb-2" onClick={demoLogin}>
+                    <button className="btn btn-secondary w-100 mb-2" onClick={handleDemoLogin}>
                         Demo Login
                     </button>
                 </div>
